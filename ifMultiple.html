@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head><title>If Demo</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <script>
+     var userDetails = {
+         Name: "John",
+         OTP : 4506070,
+         PIN : 3344
+     }
+     function Verify() {
+         var pin= document.getElementById("txtPin").value;
+         if(pin==userDetails.PIN) {
+             document.write("Verified Successfully using PIN");
+         } else if(pin==userDetails.OTP) {
+             document.write("Verified using OTP");
+         } else {
+             alert("Please Enter Valid PIN or OTP");
+         }
+     }
+  </script>
+ </head>
+ <body>
+     <div class="container">
+        <fieldset>
+            <legend>Verify Pin</legend>
+            <div class="form-inline form-row">
+                    <input type="text" id="txtPin" class="form-control" placeholder="You can use OTP/PIN">
+                    <input type="button" value="Verify" class="btn btn-primary" onclick="Verify()">
+            </div>
+        </fieldset>
+     </div>
+ </body>
+</html>

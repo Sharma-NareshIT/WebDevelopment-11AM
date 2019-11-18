@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+          var userDetails = {
+              CardNo:4444555566667777,
+              Expiry:2020,
+              Cvv:3344
+          };
+          function VerifyCard() {
+              var card = document.getElementById("txtCard").value;
+              if(card==userDetails.CardNo) {
+                  document.getElementById("lstExpiry").disabled=false;
+              }
+          }
+          function VerifyExpiry() {
+              var expiry = document.getElementById("lstExpiry").value;
+              if(expiry==userDetails.Expiry) {
+                  document.getElementById("txtCvv").disabled=false;
+              }
+          }
+          function VerifyCvv() {
+              var cvv = document.getElementById("txtCvv").value;
+              if(cvv==userDetails.Cvv) {
+                  document.getElementById("btnPay").disabled=false;
+              }
+          }
+          function PayClick() {
+              var card = document.getElementById("txtCard").value;
+              var expiry= document.getElementById("lstExpiry").value;
+              var cvv = document.getElementById("txtCvv").value;
+              var error = document.getElementById("error");
+
+              if(card==userDetails.CardNo) {
+                 if(expiry==userDetails.Expiry) {
+                    if(cvv==userDetails.Cvv) {
+                    document.write("Payment Successfully..");
+                    } else {
+                        error.style.display="block";
+                        error.innerHTML="<h2>Invalid CVV</h2>"
+                    }
+                 } else {
+                     error.style.display="block";
+                     error.innerHTML="<h2>Invalid Expiry Year</h2>";
+                 }
+              } else {
+                  error.style.display="block";
+                  error.innerHTML="<h2>Invalid Card Number</h2>";
+              }
+
+          }
+        </script>
+    </head>
+   <body>
+       <div class="container">
+           <fieldset>
+               <legend>Payment Details</legend>
+               <dl>
+                   <dt>Card Number</dt>
+                   <dd>
+                       <input type="text" id="txtCard" class="form-control" onkeyup="VerifyCard()">
+                   </dd>
+                   <dt>Expiry</dt>
+                   <dd>
+                       <select disabled id="lstExpiry" class="form-control" onchange="VerifyExpiry()">
+                           <option>2019</option>
+                           <option>2020</option>
+                           <option>2021</option>
+                       </select>
+                   </dd>
+                   <dt>CVV</dt>
+                   <dd>
+                       <input disabled type="text" id="txtCvv" class="form-control" onkeyup="VerifyCvv()">
+                   </dd>
+               </dl>
+               <br>
+               <input id="btnPay" disabled type="button" value="Pay" class="btn btn-primary" onclick="PayClick()">
+           </fieldset>
+           <div id="error" style="height:200px; width:300px;position:fixed; right:10px; top:30px; display: none;" class="alert alert-danger">
+             <input type="button" value="X" onclick="CloseClick" class="btn btn-danger">
+           </div>
+       </div>
+   </body>
+</html>
