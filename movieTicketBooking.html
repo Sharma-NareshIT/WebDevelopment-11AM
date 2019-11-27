@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .bg {
+            background: rgb(175, 26, 172);
+            background: linear-gradient(90deg, rgba(175, 26, 172, 1) 0%, rgba(11, 29, 212, 1) 52%, rgba(0, 212, 255, 1) 100%);
+        }
+        .backEffects{
+            background: rgb(58,73,180);
+background: linear-gradient(45deg, rgba(58,73,180,1) 0%, rgba(100,29,253,0.9951330874146533) 38%, rgba(252,69,248,1) 100%);
+        }
+        .col-md {
+            margin-top: 12px;
+        }
+
+        body {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+
+        }
+    </style>
+    <script>
+        var cities = ["Select City", "Bangalore", "Hyderabad"];
+        var banCinemas = ["Select Cinema", "7D VR Voyage: Garuda Mall", "PVR: Forum Mall, Koramangala"];
+        var hydCinemas = ["Select Cinema", "INOX: GSM Mall", "Platinum Movietime"];
+
+        var _7dMovies = ["Select Movie", "Ford v Ferrari", "Frozen 2"];
+        var pvrMovies = ["Select Movie", "The Angry Birds Movie 2", "Star Wars: The Rise Of Skywalker"];
+        var inoxMovies = ["Select Movie", "Spies In Disguise", "The Lego Movie 2"];
+        var platinumMovies = ["Select Movie", "Fast & Furious 9", "How to Train Your Dragon: The Hidden World"];
+
+        var movieDetails = [
+            { Name: "Ford v Ferrari", Photo: "../pics/ford.jpg", time: ["11:00 AM", "2:30 PM"] },
+            { Name: "Frozen 2", Photo: "../pics/frozen.jpg", time: ["12:15 PM", "6:00PM"] },
+            { Name: "The Angry Birds Movie 2", Photo: "../pics/angrybird.jpg", time: ["3:00 PM", "9:00PM"] },
+            { Name: "Star Wars: The Rise Of Skywalker", Photo: "../pics/starwars1.jpg", time: ["2:00PM", "5:30PM"] },
+            { Name: "Spies In Disguise", Photo: "../pics/spies.jpeg", time: ["3:00PM", "7:00PM"] },
+            { Name: "The Lego Movie 2", Photo: "../pics/lego2.jpg", time: ["10:00 AM", "2:00PM", "5:00PM"] },
+            { Name: "Fast & Furious 9", Photo: "../pics/fastn.jpg", time: ["1:00PM", "6:00PM"] },
+            { Name: "How to Train Your Dragon: The Hidden World", Photo: "../pics/dragon.jpg", time: ["8AM", "4:00PM"] },
+
+        ]
+        var seats = [1, 2, 3, 4, 5];
+        var classes = ["Normal", "Gold", "Premium"]
+
+        function bodyload() {
+
+            var lstCity = document.getElementById('lstCity');
+            for (var i = 0; i < cities.length; i++) {
+                var option = document.createElement('option')
+                option.text = cities[i];
+                option.value = cities[i];
+                lstCity.appendChild(option)
+            }
+            var lstSeats = document.getElementById('lstSeats');
+
+            for (var i = 0; i < seats.length; i++) {
+
+                var option = document.createElement('option');
+                option.text = seats[i];
+                option.value = seats[i];
+                lstSeats.appendChild(option)
+
+            }
+
+            var lstClasses = document.getElementById('lstClasses');
+            for (var i = 0; i < classes.length; i++) {
+                var option = document.createElement('option');
+                option.text = classes[i];
+                option.value = classes[i];
+                lstClasses.appendChild(option)
+            }
+
+        }
+        var getSeat = 1;
+        function SeatsChanged() {
+            getSeat = document.getElementById('lstSeats').value;
+        }
+
+        var classVal
+        var normalCost = 150;
+        var goldCost = 0;
+        var premiumCost = 0;
+        var totalAmount = 0;
+        function ClassesChanged() {
+            classVal = document.getElementById('lstClasses').value
+            if (classVal == "Normal") {
+                normalCost = 150;
+            }
+            if (classVal == "Gold") {
+                goldCost = 300;
+            }
+            if (classVal == "Premium") {
+                premiumCost = 600;
+            }
+        }
+        function AddCinemas(cinema) {
+            var lstCinema = document.getElementById('lstCinema');
+            for (var i = 0; i < cinema.length; i++) {
+                var option = document.createElement('option');
+                option.text = cinema[i];
+                option.value = cinema[i];
+                lstCinema.appendChild(option)
+            }
+        }
+        function CityChanged() {
+            var city = document.getElementById('lstCity').value;
+            switch (city) {
+                case "Bangalore":
+                    document.getElementById('lstCinema').innerHTML = "";
+                    AddCinemas(banCinemas);
+                    break;
+                case "Hyderabad":
+                    document.getElementById('lstCinema').innerHTML = "";
+                    AddCinemas(hydCinemas);
+                    break;
+                default:
+                    document.getElementById('lstCinema').innerHTML = "";
+                    alert('Please Select City');
+                    break;
+            }
+        }
+
+        function AddMovies(cinema) {
+            var lstMovies = document.getElementById('lstMovies');
+            for (var i = 0; i < cinema.length; i++) {
+                var option = document.createElement('option');
+                option.text = cinema[i];
+                option.value = cinema[i];
+                lstMovies.appendChild(option)
+            }
+        }
+        function CinemaChanged() {
+            var cinemas = document.getElementById('lstCinema').value;
+            switch (cinemas) {
+                case "7D VR Voyage: Garuda Mall":
+                    document.getElementById("lstMovies").innerHTML = "";
+                    AddMovies(_7dMovies);
+                    break;
+                case "PVR: Forum Mall, Koramangala":
+                    document.getElementById("lstMovies").innerHTML = "";
+                    AddMovies(pvrMovies);
+                    break;
+                case "INOX: GSM Mall":
+                    document.getElementById("lstMovies").innerHTML = "";
+                    AddMovies(inoxMovies);
+                    break;
+                case "Platinum Movietime":
+                    document.getElementById("lstMovies").innerHTML = "";
+                    AddMovies(platinumMovies);
+                    break;
+                default:
+                    document.getElementById("lstMovies").innerHTML = "";
+                    alert("Please Select a Cinema")
+            }
+        }
+
+        function AddShowTime(time) {
+            var lstShowTimes = document.getElementById('lstShowTimes');
+            for (var i = 0; i < time.length; i++) {
+                var option = document.createElement('option');
+                option.text = time[i];
+                option.value = time[i];
+                lstShowTimes.appendChild(option);
+            }
+        }
+
+        var movie;
+        var showTime = [];
+        function MovieChanged() {
+            var movieName = document.getElementById('lstMovies').value;
+            movie = movieDetails.filter(x => x.Name == movieName);
+            document.getElementById("poster").src = movie[0].Photo;
+            showTime = movie[0].time
+            var lstShowTimes = document.getElementById('lstShowTimes');
+            document.getElementById('lstShowTimes').innerHTML = '';
+            for (var i = 0; i < showTime.length; i++) {
+                var option = document.createElement('option');
+                option.text = showTime[i];
+                option.value = showTime[i];
+                lstShowTimes.appendChild(option)
+
+            }
+        }
+
+
+        function BookTicketClick(d1) {
+            document.getElementById('lblDate').innerHTML = document.getElementById(d1).value;
+            document.getElementById('lblCity').innerHTML = document.getElementById('lstCity').value;
+            document.getElementById('lblCinema').innerHTML = document.getElementById('lstCinema').value;
+            document.getElementById('lblMovie').innerHTML = document.getElementById('lstMovies').value;
+            document.getElementById('lblTime').innerHTML = document.getElementById('lstShowTimes').value;
+            document.getElementById('lblSeat').innerHTML = document.getElementById('lstSeats').value;
+            document.getElementById('lblClass').innerHTML = document.getElementById('lstClasses').value;
+
+            totalAmount = getSeat * normalCost;
+            if (classVal == "Normal" && getSeat) {
+                normalCost = 150;
+                totalAmount = getSeat * normalCost;
+            }
+            if (classVal == "Gold") {
+                goldCost = 300;
+                totalAmount = getSeat * goldCost;
+
+            }
+            if (classVal == "Premium") {
+                premiumCost = 600;
+                totalAmount = getSeat * premiumCost;
+
+            }
+            document.getElementById('totalAmount').innerHTML = totalAmount;
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+    <div class="container-fluid">
+        <div class="bg">
+            <form>
+                <div class="row mt-1">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <select id="lstCity" class="form-control" onchange="CityChanged()"></select>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <select id="lstCinema" class="form-control" onchange="CinemaChanged()"></select>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <select id="lstMovies" onchange="MovieChanged()" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <input type="date" id="lstDate" name="lstDate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <select id="lstShowTimes" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <select id="lstSeats" onchange="SeatsChanged()" class="form-control">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <select id="lstClasses" onchange="ClassesChanged()" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-group text-center">
+            <input type="button" value="Book Ticket" onclick="BookTicketClick('lstDate')"
+                class="btn btn-outline-light btn-lg bg mt-3">
+        </div>
+        <div>
+            <img id="poster" width="1506" height="410" alt="">
+        </div>
+        <div id="BookSummary" class="mt-1 text-center border">
+            <h2 class="backEffects text-white-50">Book Summary</h2>
+            <table class="table table-hover">
+                <thead class="bg-info">
+                    <th>City</th>
+                    <th>Cinema</th>
+                    <th>Movie</th>
+                    <th>Date</th>
+                    <th>Show Time</th>
+                    <th>Seat</th>
+                    <th>Class</th>
+                    <th>Total Amount</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="lblCity"></td>
+                        <td id="lblCinema"></td>
+                        <td id="lblMovie"></td>
+                        <td id="lblDate"></td>
+                        <td id="lblTime"></td>
+                        <td id="lblSeat"></td>
+                        <td id="lblClass"></td>
+                        <td id="totalAmount"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
