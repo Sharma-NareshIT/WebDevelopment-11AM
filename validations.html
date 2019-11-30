@@ -1,0 +1,126 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var userDetails = [
+            { UserName:"john"},
+            { UserName:"john12"},
+            { UserName:"david"}
+        ];
+        function VerifyUser() {
+            var lblName= document.getElementById("lblName");
+            var username = document.getElementById("txtName").value;
+
+            for(var i=0; i<userDetails.length; i++) {
+                if(userDetails[i].UserName==username) {
+                    lblName.className="text-danger";
+                    lblName.innerHTML="User Name Taken - Try Another";
+                    break;
+                } else {
+                    lblName.className="text-success";
+                    lblName.innerHTML="User Name Available";
+                }
+            }
+
+        }
+        function VerifyPassword() {
+            var regExp=/(?=.*[A-Z])\w{4,15}/;
+            var pwd = document.getElementById("txtPwd").value;
+            var msg = document.getElementById("msg");
+            var grade = document.getElementById("grade");
+            grade.style.display="block";
+            document.getElementById("errorGroup").style.display="block";
+            function ShowGrade(min, max, val, low, high){
+               
+                grade.min=min;
+                grade.max=max;
+                grade.value=val;
+                grade.low=low;
+                grade.high=high;
+            }
+
+            if(pwd.match(regExp)) {
+                msg.innerHTML="Strong Password";
+                ShowGrade(1,100,100,0,0);
+            }else {
+                if(pwd.length<4) {
+                    msg.innerHTML="Poor Password";
+                    ShowGrade(1,100,100,60,80);
+                } else {
+                    msg.innerHTML="Weak Password";
+                    ShowGrade(1,100,100,40,80);
+                }
+            }
+
+        }
+        function VerifyCaps(event) {
+            var warn = document.getElementById("warn");
+            if(event.keyCode>=65 && event.keyCode<=90) {
+                warn.innerHTML="Caps is ON";
+            } else {
+                warn.innerHTML="";
+            }
+        }
+        function ConfirmPassword(){
+            var pwd= document.getElementById("txtPwd").value;
+            var confirmPwd = document.getElementById("txtConfirm").value;
+            var lblConfirm = document.getElementById("lblConfirm");
+            if(confirmPwd!=pwd) {
+                lblConfirm.innerHTML="Password Mismatch";
+            } else {
+                lblConfirm.innerHTML="";
+            }
+        }
+        function Hide(){
+            document.getElementById("errorGroup").style.display="none";
+        }
+        function VerifyCity(city){
+            var cityError = document.getElementById("cityError");
+            if(city.value=="nocity") {
+                cityError.innerHTML="Please Select Your City";
+            } else {
+                cityError.innerHTML="";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Register User</h2>
+        <div class="form-group">
+            <label>User Name</label>
+            <div>
+                <input onkeypress="VerifyCaps(event)" onkeyup="VerifyUser()" type="text" class="form-control" id="txtName">
+                <span id="lblName"></span>
+                <span id="warn"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <div>
+                <input onblur="Hide()" onkeyup="VerifyPassword()" type="password" class="form-control" id="txtPwd">
+                <div id="errorGroup">
+                    <meter style="display: none;" id="grade" min="" max="" value="" low="" high="" class="form-control"></meter>
+                    <span class="text-danger" id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <div>
+                <input onkeyup="ConfirmPassword()" type="password" id="txtConfirm" class="form-control">
+                <span id="lblConfirm"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Select City</label>
+            <div>
+                <select id="lstCities" onchange="VerifyCity(this)" class="form-control">
+                    <option value="nocity">Select a City</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Hyd">Hyd</option>
+                </select>
+                <span id="cityError" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</body>
