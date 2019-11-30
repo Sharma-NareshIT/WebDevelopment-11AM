@@ -1,0 +1,59 @@
+body {
+    background-color:darkcyan;
+}
+.container {
+    margin: 10px;
+    height: 768px;
+    background-color: whitesmoke;
+}
+.headerText {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    top:5px;
+    position: relative;
+    padding: 5px;
+    background-color: darkseagreen;
+    color:white;
+}
+.menuBar {
+    font-size: 2em;
+    background-color: darkslategray;
+    margin:5px;
+    margin-top: 10px;
+    padding: 10px;
+}
+a:link {
+    text-decoration: none;
+    color:white;
+}
+.hspace {
+    margin-left: 40px;
+}
+.hspace :hover {
+    background-color: white;
+    color:black;
+}
+marquee {
+    font-size: 2em;
+    
+}
+section {
+    margin:5px;
+    height: 300px;
+}
+.box {
+    width:300px;
+    height:200px;
+    background-color: lightgoldenrodyellow;
+    float: left;
+    padding:20px;
+    margin-left: 20px;
+}
+footer {
+    background-color: darkslategray;    
+    margin: 5px;
+    height: 200px;
+    color:white
+}
