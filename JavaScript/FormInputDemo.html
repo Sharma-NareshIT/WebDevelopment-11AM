@@ -1,0 +1,90 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+     .frmRegister {
+         width: 300px;
+         border: 2px darkcyan solid;
+         border-radius: 10px;  
+         padding: 10px; 
+         float: left;
+         margin: 10px;      
+     }
+     .frmDetails {
+         width: 300px;
+         border: 2px darkcyan solid;
+         border-radius: 10px;  
+         padding: 10px;  
+         float: left;  
+         margin: 10px;   
+     }
+     dt {
+         font-weight: bold;
+         background-color: lightcyan;
+     }
+    </style>
+    <script>
+     function SubmitClick(){
+         document.getElementById("frmDetails").style.display="block";
+         document.getElementById("lblName").innerText = document.getElementById("txtName").value;
+         document.getElementById("lblMfd").innerText = document.getElementById("txtMfd").value;
+         document.getElementById("lblStock").innerText = frmRegister.stock.value;
+         document.getElementById("lblShipped").innerText = document.getElementById("lstCity").value;
+     }
+     function CloseClick(){
+         document.getElementById("frmDetails").style.display="none";
+     }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="frmRegister">
+         <form name="frmRegister">
+            <h3>Register Product</h3>
+         <div class="form-group">
+            <label>Name</label>
+            <div>
+                <input class="form-control" type="text" id="txtName">
+            </div>
+         </div>
+         <div class="form-group">
+            <label>Manufactured</label>
+            <div>
+                <input class="form-control" type="date" id="txtMfd">
+            </div>
+         </div>
+         <div class="form-group">
+            <label>Is In Stock</label>
+            <div>
+                <input type="radio" name="stock" value="Available"> Yes
+                <input type="radio" name="stock" value="Out of Stock"> No
+            </div>
+         </div>
+         <div class="form-group">
+            <label>Shipped To</label>
+            <div>
+                <select class="form-control" id="lstCity">
+                    <option>Delhi</option>
+                    <option>Hyderabad</option>
+                </select>
+            </div>
+         </div>
+        </form>
+         <div class="form-group">
+            <button class="btn btn-primary" onclick="SubmitClick()">Submit</button>
+         </div>
+        </div>
+        <div id="frmDetails" class="frmDetails" style="display: none;">
+            <dl>
+                <dt>Name</dt>
+                <dd id="lblName"></dd>
+                <dt>Manufactured</dt>
+                <dd id="lblMfd"></dd>
+                <dt>Stock Status</dt>
+                <dd id="lblStock"></dd>
+                <dt>Shipped To</dt>
+                <dd id="lblShipped"></dd>
+            </dl>
+            <button class="btn btn-danger" onclick="CloseClick()">Close</button>
+        </div>
+    </div>
+</body>
