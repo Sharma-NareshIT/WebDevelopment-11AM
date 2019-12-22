@@ -1,0 +1,30 @@
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+     var app = angular.module("DemoApp",[]);
+     app.controller("HomeController", function($scope){
+          $scope.data = [
+              {
+                  Category: "Electronics",
+                  Products: ["Samsung TV", "Mobile"]
+              },
+              {
+                  Category: "Shoes",
+                  Products: ["Nike Casuals", "Lee Cooper Boot"]
+              }
+          ]
+     })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <ol>
+       <li ng-repeat="item in data">
+           {{item.Category}}
+           <ul>
+               <li ng-repeat="product in item.Products">
+                   {{product}}
+               </li>
+           </ul>
+       </li>
+   </ol>
+</body>

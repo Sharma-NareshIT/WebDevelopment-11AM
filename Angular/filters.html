@@ -1,0 +1,83 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+     var app=angular.module("ShoppingApp",[]);
+     app.controller("HomeController", function($scope){
+         $scope.products =[
+             {
+                 Name: "Samsung TV",
+                 Price: 45000.53,
+                 Mfd: new Date("2019/02/20"),
+                 Photo: "../Images/tv.jpg"
+             },
+             {
+                 Name: "MI Mobile",
+                 Price: 13000.53,
+                 Mfd: new Date("2019/05/10"),
+                 Photo: "../Images/mobile.jpg"
+             },
+             {
+                 Name: "Nike Causals",
+                 Price: 5000.53,
+                 Mfd: new Date("2019/04/2"),
+                 Photo: "../Images/shoe.jpg"
+             },
+             {
+                 Name: "Lee Cooper Boot",
+                 Price: 6000.53,
+                 Mfd: new Date("2019/01/10"),
+                 Photo: "../Images/shoe1.jpg"
+             }
+         ]
+     })
+    </script>
+</head>
+<body ng-app="ShoppingApp" ng-controller="HomeController">
+  <div class="container">
+    <div style="float: left; width: 200px; height: 300px; border-radius: 2px; border:2px solid darkcyan; margin-right: 20px; padding: 10px;">
+        <dl>
+            <dt>Sort Products</dt>
+            <dd>
+                <select class="form-control" ng-model="sort">
+                    <option value="Name">Name</option>
+                    <option value="Price">Price</option>
+                    <option value="Mfd">Manufactured</option>
+                </select>
+                <input type="checkbox" ng-model="reverse"> Reverse ?
+            </dd>
+            <dt>Search</dt>
+            <dd>
+                <input type="text" ng-model="search" class="form-control">
+            </dd>
+            <dt>Results</dt>
+            <dd>
+               <input type="number" class="form-control" min="1" max="4" ng-model="records">
+            </dd>
+        </dl>
+    </div>
+    <div style="float: left; width: 500px; border:2px solid black">
+        <h2>Products Table</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Manufactured</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products|orderBy:sort:reverse |filter:search | limitTo:records">
+                    <td>{{product.Name | uppercase}}</td>
+                    <td>{{product.Price | currency:'&#8377;'}}</td>
+                    <td>{{product.Mfd | date:'dd-MMM-yyyy'}}</td>
+                    <td>
+                        <img src="{{product.Photo}}"  width="80" height="80">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</body>

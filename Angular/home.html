@@ -1,0 +1,51 @@
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <style>
+     dl {
+         border:2px solid darkcyan;
+         padding:10px;
+         margin:10px;
+         border-radius: 20px;
+         float: left;
+         width: 200px;
+     }
+    </style>
+</head>
+<body ng-app>
+  <dl>
+      <h3>Register</h3>
+      <dt>Name</dt>
+      <dd><input type="text" ng-model="prodName"></dd>
+      <dt>Price</dt>
+      <dd><input type="text" ng-model="price"></dd>
+      <dt>Quantity</dt>
+      <dd><input type="number" min="1" max="5" ng-model="qty"></dd>
+      <dt>Shipped To</dt>
+      <dd>
+          <select ng-model="lstCity">
+              <option>Delhi</option>
+              <option>Hyd</option>
+          </select>
+      </dd>
+      <dt>In Stock</dt>
+      <dd>
+          <input ng-model="stock" type="radio" value="Available" name="stock"> Yes
+          <input ng-model="stock" type="radio" value="Out of Stock" name="stock"> No
+      </dd>
+  </dl>
+  <dl>
+      <h3>Details</h3>
+      <dt>Name</dt>
+      <dd ng-bind="prodName"></dd>
+      <dt>Stock</dt>
+      <dd ng-bind="stock"></dd>
+      <dt>Price</dt>
+      <dd ng-bind="price"></dd>
+      <dt>Quantity</dt>
+      <dd ng-bind="qty"></dd>
+      <dt>Total</dt>
+       <dd>{{qty * price}}</dd>
+      <dt>Shipped To</dt>
+       <dd>{{lstCity}}</dd>
+  </dl>
+</body>

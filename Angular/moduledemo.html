@@ -1,0 +1,13 @@
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+       var app = angular.module("DemoApp",[]);
+       app.controller("HomeController",function($scope){
+           var msg = "Welcome to Angular JS";
+           $scope.msg = msg;
+       })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <h2>{{msg}}</h2>
+</body>

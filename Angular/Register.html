@@ -1,0 +1,31 @@
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body ng-app>
+  <form name="frmRegister">
+    <div>
+        <label>Your Name</label>
+        <div>
+            <input type="text" name="txtName" ng-model="txtName" required>
+            <span ng-if="frmRegister.txtName.$touched && frmRegister.txtName.$invalid">Name Required</span>
+        </div>
+    </div>
+    <div>
+        <h2>Validation Services</h2>
+        <dl>
+            <dt>Pristine - Field Not Modified</dt>
+            <dd>{{frmRegister.txtName.$pristine}}</dd>
+            <dt>Dirty - Field Modified</dt>
+            <dd>{{frmRegister.txtName.$dirty}}</dd>
+            <dt>Touched</dt>
+            <dd>{{frmRegister.txtName.$touched}}</dd>
+            <dt>UnTouched</dt>
+            <dd>{{frmRegister.txtName.$untouched}}</dd>
+            <dt>Invalid</dt>
+            <dd>{{frmRegister.txtName.$invalid}}</dd>
+            <dt>Valid</dt>
+            <dd>{{frmRegister.txtName.$valid}}</dd>
+        </dl>
+    </div>
+  </form>
+</body>

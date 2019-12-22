@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body ng-app>
+  <div class="container">
+    <h2>Register User</h2>
+    <form name="register">
+      <div class="form-group">
+        <label>Name</label>
+        <div>
+            <input class="form-control" type="text" name="txtName" ng-model="txtName" required ng-minlength="4" ng-maxlength="10">
+            <div ng-if="register.txtName.$touched" class="text-danger">
+                <span ng-if="register.txtName.$error.required">Name Required</span>
+                <span ng-if="register.txtName.$error.minlength">Name too short..</span>
+                <span ng-if="register.txtName.$error.maxlength">Name too long..</span>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mobile</label>
+        <div>
+            <input type="text" name="txtMobile" ng-model="txtMobile" class="form-control" pattern="\+91[0-9]{10}">
+            <span class="text-danger" ng-if="register.txtMobile.$error.pattern">Invalid Mobile</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <button ng-disabled="register.$invalid" class="btn btn-block btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+</body>
