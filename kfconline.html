@@ -1,0 +1,198 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+     body {
+         background-color: maroon;
+     }
+     .CustomContainer {
+         margin: auto;
+         width: 90%;
+         height: 90%;
+         background-color: white;
+     }
+     header {
+        margin-top: 20px;
+     }
+     #summary {
+         top: 50px;
+         left:200px;
+         position: fixed;
+         margin:auto;
+     }
+    </style>
+    <script>
+     function OrderClick(){
+         document.getElementById("summary").style.display="block";
+         document.getElementById("register").style.opacity="0.3";
+
+        var mealName="";
+        var adonName="";
+
+        var mealCost=0;
+        var adonCost=0;
+        var total=0;
+        //Radios
+        var optBurger = document.getElementById("optBurger");
+        var optRoller = document.getElementById("optRoller");
+        //CheckBox
+        var optWings = document.getElementById("optWings");
+        var optKrusher = document.getElementById("optKrusher");
+
+        if(optBurger.checked) {
+            mealCost=140;
+            mealName=optBurger.value;
+        }
+        if(optRoller.checked) {
+            mealCost=100;
+            mealName=optRoller.value;
+        }
+
+        if(optWings.checked) {
+            adonCost=90;
+            adonName+=optWings.value + "<br>";
+            mealCost = mealCost + adonCost;
+        }
+        if(optKrusher.checked) {
+            adonCost=50;
+            adonName+=optKrusher.value + "<br>";
+            mealCost = mealCost + adonCost;
+        }
+        total=mealCost;
+
+        document.getElementById("lblName").innerHTML= document.getElementById("txtName").value;
+        document.getElementById("lblMobile").innerHTML= document.getElementById("txtMobile").value;
+        document.getElementById("lblDate").innerHTML= document.getElementById("txtDate").value;
+        document.getElementById("lblMeal").innerHTML= mealName;
+        document.getElementById("lblAdon").innerHTML= adonName;
+        document.getElementById("lblTotal").innerHTML= "&#8377;" + total;
+        
+
+        
+        
+
+     }
+    </script>
+ </head>
+<body>
+ <div class="CustomContainer">
+  <div id="register" class="card">
+    <div class="card-header">
+        <img class="card-img-top" src="../Images/kfctop.PNG">
+    </div>
+    <div class="card-body">
+        <div class="text-center form-group">
+           <h3> Customer Info </h3>
+        </div>
+        <div class="form-inline">
+            <label>Name</label> :
+            <input type="text" id="txtName" class="form-control">
+            <label>Mobile</label>:
+            <input type="text" id="txtMobile" class="form-control">
+            <label>Date</label>
+            <input type="date" id="txtDate" class="form-control">
+        </div>
+        <div class="text-center form-group">
+            <h3>Select a Meal</h3>
+            <div class="card-deck">
+            <div class="card">
+                <div class="card-header">
+                   <h4>OMG Burger</h4>
+                </div>
+                <div class="card-body">
+                    <img src="../Images/omg1.PNG" width="200" height="200">
+                </div>
+                <div class="card-footer">
+                    <input type="radio" id="optBurger" value="OMG Burger" class="form-control" name="meal">
+                    <h4>&#8377; 140/-</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                   <h4>OMG Roller</h4>
+                </div>
+                <div class="card-body">
+                    <img src="../Images/omg2.PNG" width="200" height="200">
+                </div>
+                <div class="card-footer">
+                    <input type="radio" id="optRoller" value="OMG Roller" class="form-control" name="meal">
+                    <h4>&#8377; 100/-</h4>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="text-center form-group">
+            <h3>Select Ad-ON</h3>
+            <div class="card-deck">
+            <div class="card">
+                <div class="card-header">
+                   <h4>Hot Wings</h4>
+                </div>
+                <div class="card-body">
+                    <img src="../Images/wings.PNG" width="200" height="200">
+                </div>
+                <div class="card-footer">
+                    <input type="checkbox" id="optWings" value="Hot Wings" class="form-control">
+                    <h4>&#8377; 90/-</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                   <h4>Krusher Brownie</h4>
+                </div>
+                <div class="card-body">
+                    <img src="../Images/krusher1.PNG" width="200" height="200">
+                </div>
+                <div class="card-footer">
+                    <input type="checkbox" id="optKrusher" value="Krusher Brownie" class="form-control">
+                    <h4>&#8377; 50/-</h4>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer  text-center">
+        <button onclick="OrderClick()" class="btn btn-danger">Place Order</button>
+    </div>
+  </div>
+  <!-- End of Register -->
+  <div id="summary" class="card" style="display: none;">
+      <!--Pop up-->
+    <div class="card-header">
+        <h3>Order Summary</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <colgroup span="1" style="background-color: lightcyan; font-weight: bold;"></colgroup>
+            <tr>
+                <td>Customer Name</td>
+                <td id="lblName"></td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td id="lblMobile"></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td id="lblDate"></td>
+            </tr>
+            <tr>
+                <td>Selected Meal</td>
+                <td id="lblMeal"></td>
+            </tr>
+            <tr>
+                <td>Selected Ad-On's</td>
+                <td id="lblAdon"></td>
+            </tr>
+            <tr>
+                <td>Total Amount</td>
+                <td id="lblTotal"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer">
+        <button onclick="window.print()" class="btn btn-success">Print Bill</button>
+        <button onclick="location.reload()" class="btn btn-primary">Back</button>
+    </div>
+  </div>
+ </div>
+</body>
