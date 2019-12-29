@@ -1,0 +1,73 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+      var regExp;
+      var tip;
+      function DisplayDetails(tip,flag){
+        document.getElementById("txtMobile").placeholder=tip;
+        document.getElementById("imgCountry").src=flag;
+      }
+      function CountryChanged(){
+          var countryName = document.getElementById("lstCountries").value;
+          switch(countryName) {
+              case "India":
+              tip="India Calling Code +91 and 10 digits";
+              DisplayDetails(tip,"../Images/india.png");
+              regExp=/\+91[0-9]{10}/;
+              break;
+              case "US":
+              tip="US Calling Code +001 and 6 digits"
+              DisplayDetails(tip,"../Images/us.png");
+              regExp=/\+001[0-9]{6}/;
+              break;
+              case "UK":
+              tip="UK Calling Code +44 and 8 digits";
+              DisplayDetails(tip,"../Images/uk.png");
+              regExp=/\+44[0-9]{8}/;
+              break;
+              default:
+              DisplayDetails("Please Select a Country","");
+              break;
+          }
+      }
+      function VerifyMobile(){
+          var mobile = document.getElementById("txtMobile").value;
+          if(mobile.match(regExp)) {
+              document.write("Mobile Verified..");
+          } else {
+              document.getElementById("popup").style.display="block";
+              document.getElementById("msg").innerHTML=tip;
+          }
+      }
+    </script>
+</head>
+<body>
+    <div class="container">
+      <fieldset>
+          <legend>
+              Verify Your Mobile 
+              <img id="imgCountry" width="30" height="30">
+          </legend>
+          <dl>
+              <dt>Select Your Country</dt>
+              <dd>
+                  <select onchange="CountryChanged()" class="form-control" id="lstCountries">
+                    <option>Select Country</option>
+                    <option>India</option>
+                    <option>US</option>
+                    <option>UK</option>
+                  </select>
+              </dd>
+              <dt>Your Mobile</dt>
+              <dd>
+                  <input type="text" id="txtMobile" class="form-control">
+              </dd>
+          </dl>
+          <button onclick="VerifyMobile()" class="btn btn-success">Verify Mobile</button>
+      </fieldset>
+    </div>
+    <div id="popup" style="display: none;">
+        <h2>Invalid Mobile</h2>
+        <p id="msg"></p>
+    </div>
+</body>
