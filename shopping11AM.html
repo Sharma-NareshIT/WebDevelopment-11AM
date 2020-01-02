@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Shopping</title>
+     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+     <style>
+       .container {
+           width:400px;
+           margin:auto;
+           padding:20px;
+       }
+       label {
+           font-weight: bold;
+       }
+       .cart {
+           width:600px;
+           margin: auto;
+           border:2px solid darkcyan;
+           display: none;
+           position: fixed;
+           top:50px;
+           left:100px;
+           background-color: white;
+       }
+       #cartStatus {
+           position: fixed;
+           right:120px;
+           top:50px;
+           cursor:grab;
+           font-weight: bold;
+           font-size: 2em;
+       }
+     </style>
+     <script>
+        var categories = ["Select a Category","Electronics","Shoes"];
+        function bodyload(){
+            document.getElementById("lblCount").innerHTML=count;
+            for(var i=0; i<categories.length; i++) {
+                var opt= document.createElement("option");
+                opt.text = categories[i];
+                opt.value = categories[i];
+                document.getElementById("lstCategories").appendChild(opt);
+            }
+        }
+        var electronics = ["Select Electronic Products","Samsung TV", "MI Mobile"];
+        var shoes = ["Select Shoe Product", "Nike Casuals", "Lee Cooper Boot"];
+
+        function AddProducts(collection){
+            document.getElementById("lstProducts").innerHTML="";
+            for(var i=0; i<collection.length; i++) {
+                var opt = document.createElement("option");
+                opt.value = collection[i];
+                opt.text = collection[i];
+                document.getElementById("lstProducts").appendChild(opt);
+            }
+        }
+
+        function CategoryChanged(){
+            var categoryName = document.getElementById("lstCategories").value;
+            switch(categoryName) 
+            {
+              case "Electronics":
+              AddProducts(electronics);
+              break;
+              case "Shoes":
+              AddProducts(shoes);
+              break;
+              default:
+              document.getElementById("lstProducts").innerHTML="";
+              break;
+            }
+        }
+        var data = [
+            {Name: "Samsung TV", Price: 45000.66, Photo:"../Images/tv.jpg"},
+            {Name: "MI Mobile", Price: 12000.66, Photo:"../Images/mobile.jpg"},
+            {Name: "Nike Casuals", Price: 5000.66, Photo:"../Images/shoe.jpg"},
+            {Name: "Lee Cooper Boot", Price: 2000.66, Photo:"../Images/shoe1.jpg"}
+        ];
+        var cartItems = [];
+        var searchedProducts=[];
+        var count=0;
+        function ProductChanged(){
+            var productName = document.getElementById("lstProducts").value;
+            searchedProducts = data.filter(product=>product.Name==productName);
+            document.getElementById("lblName").innerHTML= searchedProducts[0].Name;
+            document.getElementById("lblPrice").innerHTML="&#8377;" + searchedProducts[0].Price;
+            document.getElementById("imgProduct").src= searchedProducts[0].Photo;
+        }
+        function AddToCartClick(){
+            
+           
+            cartItems.push(searchedProducts[0]);
+            alert("Item Added to Cart");
+            count=cartItems.length;
+            document.getElementById("lblCount").innerHTML=count;
+
+            for(var i=0; i<cartItems.length; i++) {
+                var tr = document.createElement("tr");
+                var tdName = document.createElement("td");
+                var tdPrice = document.createElement("td");
+                var tdPhoto = document.createElement("td");
+
+                tdName.innerHTML=cartItems[i].Name;
+                tdPrice.innerHTML = cartItems[i].Price;
+
+                var pic = new Image();
+                pic.src= cartItems[i].Photo;
+                pic.width="30";
+                pic.height="30";
+
+                tdPhoto.appendChild(pic);
+                tr.appendChild(tdName);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdPhoto);
+
+               
+            }
+            document.getElementById("tblBody").appendChild(tr);
+        }
+        function ShowCart(){
+            document.getElementById("cart").style.display="block";
+            document.getElementById("container").style.opacity="0.3";
+        }
+        function CloseClick(){
+            document.getElementById("cart").style.display="none";
+            document.getElementById("container").style.opacity="1.0";
+        }
+     </script>
+    </head>
+    <body onload="bodyload()">
+        <div onclick="ShowCart()" id="cartStatus" class="text-center">
+            <img src="../Images/cart.png" width="60" height="60">
+            <span id="lblCount">
+            </span>
+        </div>
+        <div id="container" class="container">
+            <h2 class="text-primary text-center">Amazon Shopping</h2>
+            <div class="form-group">
+                <label>Select a Category</label>
+                <select id="lstCategories" class="form-control" onchange="CategoryChanged()">
+                </select>                
+            </div>
+            <div class="form-group">
+                <label>Select a Product</label>
+                <select id="lstProducts" class="form-control" onchange="ProductChanged()">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Product Details</label>
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2 id="lblName"></h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <img id="imgProduct" width="200" height="200">
+                    </div>
+                    <div class="card-footer text-center">
+                        <h3 id="lblPrice"></h3>
+                        <button class="btn btn-success" onclick="AddToCartClick()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cart" class="cart">
+            <h3>Your Cart Items</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Preview</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+
+                </tbody>
+            </table>
+            <button onclick="CloseClick()" class="btn btn-danger">Close</button>
+        </div>
+    </body>
+</html>
