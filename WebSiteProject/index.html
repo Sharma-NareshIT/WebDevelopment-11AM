@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>Naresh Technologies</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+
+<link rel="stylesheet" type="text/css" href="css/style/style.css" />
+
+    <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+
+</head>
+
+
+<body>
+
+
+
+
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 col-sm-12">
+
+<div class="row">
+<br>
+<div class="col-xs-12 col-sm-12">
+<center>
+<h2><strong>Naresh Institute and Technologies</strong></h3></center>
+
+</div>
+</div>
+<br><br> 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+</div>      
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav navbar-left">
+<a class="navbar-brand" href="index.html"></a>
+      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+      <li><a href="about.html"><span class="fa fa-question-circle-o"></span> About</a></li>
+      <li><a href="service.html"><span class="fa fa-question-circle-o"></span> Service</a></li>
+      <li><a href="contactus.html"><span class="glyphicon glyphicon-phone"></span> Contact us</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+		<li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-sign-in"></i> Sign In<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="login.html"><span class="fa fa-sign-in"></span> Sign In </a></li>
+          <li><a href="register.html"><span class="fa fa-user-plus"></span> Sign Up </a></li>
+          <li><a href="password.html"><span class="fa fa-unlock-alt"></span> Change Password </a></li>
+        </ul>
+       </li> 
+  </ul>  
+     </div> 
+  </div>
+</nav>
+
+
+
+
+<div class="row">
+  
+<div class="w3-content w3-section" style="max-width:1500px; height: 500px">
+  <img class="mySlides" src="Images/a1.jpg" style="width:100%; height: 100%">
+  <img class="mySlides" src="Images/a2.jpg" style="width:100%; height: 100%">
+  <img class="mySlides" src="Images/a3.jpg" style="width:100%; height: 100%">
+</div>
+
+</div>
+
+<br><br>
+
+<div class="row">
+
+<button type="button" class="btn btn-warning btn-lg center-block">Show me what's in this package</button> 
+
+</div>
+
+
+<br>
+<div class="row ind2">
+
+<button type="button" class="btn btn-info btn-lg center-block">What is the package</button> 
+<div class="col-xs-12 col-sm-3"></div>
+<div class="col-xs-12 col-sm-6">
+
+
+<br>
+<p>* A package is a small container in which a quantity of something is sold. Packages are either small boxes made of thin cardboard, or bags or envelopes made of paper or plastic. ... When a product is packaged, it is put into containers to be sold.</p>
+
+
+</div>
+
+</div>
+
+<br><br>
+<div class="row ind3"></div>
+<br><br>
+
+<div class="row ind4">
+<div class="col-xs-12 col-sm-8">
+<br><br><br><br>    
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th class="text-center">Department</th>
+<th class="text-center">Included</th>
+</tr>
+ </thead>   
+<tbody>
+<tr>
+<td><h4><center>M.Tech</center></h4></td>
+<td><center><i class="fa fa-check text-success"></center></td>
+</tr>
+<tr>
+<td><h4><center>B.Tech</center></h4></td>
+<td><center><i class="fa fa-check text-success"></center></td>
+ </tr>
+ <tr>
+<td><h4><center>MCA</center></h4></td>
+<td><center><i class="fa fa-check text-success"></center></td>
+ </tr>   
+ </tbody>   
+</table>
+</div>
+
+<div class="col-xs-12 col-sm-4">
+<br><br><br><br>
+<img src="Images/a2.jpg" class="img-responsive thumbnail zoom" height="380em" width="380em">
+</div>
+</div>
+
+
+<br><br><br><br><br><br><br>
+
+
+<div class="row ind5">
+<br>
+<center><h3>What is the job</h3></center>
+
+<br><br>
+<div class="col-xs-12 col-sm-2">   
+  <i class ="fa fa-keyboard-o" style="font-size:48px;"></i>
+<br><br>
+<h4>Types of jobs</h4>
+<p>Volcanologist. ...</p>
+<p>Quantum physicist. ...</p>
+<p>Oceanographer. ...</p>
+<p>Biomedical engineer. ...</p>
+
+</div>
+
+<div class="col-xs-12 col-sm-2">   
+  <i class ="fa fa-file-word-o" style="font-size:48px"></i>
+<br><br>
+<h4>Define job profile</h4>
+<p style=" line-height: 1.9;">Job profile developed by the personnel department of a business might include such things as job responsibilities, required qualifications, advancement prospects.</p>
+
+</div>
+
+<div class="col-xs-12 col-sm-2">   
+  <i class ="fa fa-wordpress" style="font-size:48px;"></i>
+<br><br>
+<h4>Job profile summary</h4>
+<p style=" line-height: 1.9;">Profile summary is a summary of your education, skills, career experiences, and goals.</p>
+
+</div>
+
+
+<div class="col-xs-12 col-sm-2">   
+  <i class ="fa fa-desktop" style="font-size:48px;"></i>
+<br><br>
+<h4>The IT skills</h4>
+<p>Coding.</p>
+<p>Communication.</p>
+<p>Networks.</p>
+<p>Time Management.</p>
+<p>More Information Technology Skills.</p>
+
+</div>
+
+<div class="col-xs-12 col-sm-2">   
+  <i class ="fa fa-desktop" style="font-size:48px;"></i>
+<br><br>
+<h4>Freshers key skills</h4>
+<p>Communication.</p>
+<p>Ability to Work Under Pressure.</p>
+<p>Decision Making.</p>
+<p>Time Management.</p>
+<p>Self-motivation.</p>
+<p>Conflict Resolution.</p>personal skills?
+<p>Leadership.</p>
+<p>Adaptability.</p>
+
+</div>
+
+<div class="col-xs-12 col-sm-2">   
+  <i class ="fa fa-desktop" style="font-size:48px;"></i>
+<br><br>
+<h4>Personal skills</h4>
+<p style=" line-height: 1.9;">A skill is the ability to do something well, a certain competence or proficiency. Skills are typically acquired or developed through direct experiences and training, and they can require sustained effort.</p>
+
+</div>
+
+</div>
+
+<br><br><br>
+
+<div class="row ind6">
+
+<br><br>
+
+<div class="row ind61">
+    <div class="col-xs-12 col-sm-8">
+
+<span style="font-size: 550%; color: #ffff33;">&#9312;</span>
+Why do you want this job?<br>
+&nbsp;
+The hiring manager wants to: Learn about your career goals and how this position fits into your plan. Make sure that you are sincerely interested in the job and will be motivated to perform if hired. Find out what you know about the company, industry, position (and if you took the time to research).<br>
+
+</div>
+
+
+<div class="col-xs-12 col-sm-4"><center>
+
+<br><br><br>
+
+<img src="Images/ind1.jpg" width="300" height="150"/></center>
+
+</div>
+  </div>
+
+<br><br>
+
+<div class="row ind61">
+
+ <div class="col-xs-12 col-sm-4"><center>
+    <div style="border:0.7px solid #A9A9A9; width:100%; margin-left:0%;"></div>
+<br><br><br>
+
+<img src="Images/ind2.png" width="300" height="150"/></center>
+
+</div>
+
+
+<div class="col-xs-12 col-sm-8">
+
+<span style="font-size: 550%; color: #ff0000; ">&#9313;</span>
+What is a CV example?<br>
+
+A resume is a brief summary. ... If you were writing your resume you would include only the work information that relates specifically to the job you're applying for, but for a Curriculum Vitae, you would also include all your teaching experience, lab and field work..<br>
+</div>
+
+</div>
+
+<br><br>
+
+<div class="row ind61">
+    <div class="col-xs-12 col-sm-8">
+
+<span style="font-size: 550%; color: #208000; ">&#9314;</span>
+
+Do you need a resume for your first job?<br>
+
+When writing your first resume with no work experience, it's appropriate to include casual jobs like babysitting, pet sitting, lawn mowing, and shoveling snow. All experience counts and the way you present yourself, your skills, and your assets to a hiring manager begins with a strong resume.
+
+</div>
+
+
+    <div class="col-xs-12 col-sm-4 form-group"><center>
+<div style="border:0.7px solid #A9A9A9; width:100%; margin-left:0%;"></div>
+<br><br><br>
+
+<img src="Images/ind3.png" width="300" height="150"/></center>
+<br><br><br><br><br>
+</div>
+  </div>
+
+<div class="row ind61">
+
+ <div class="col-xs-12 col-sm-4 form-group"><center>
+    <div style="border:0.7px solid #A9A9A9; width:100%; margin-left:0%;"></div>
+<br><br><br>
+
+<img src="Images/ind4.jpg" width="300" height="150"/></center>
+
+</div>
+
+<div class="col-xs-12 col-sm-8 form-group" >
+
+<span style="font-size: 550%; color: #0000e6; ">&#9315;</span>
+Why do you think you can do well in this job?<br>
+
+I believe I will do well in this job because I have the relevant skills and it is my field of interest. ... I have a confident that I can do well in the job because of self confidence, positive attitude. Previous success also brings self confidence for the future success.
+</div>
+
+</div> 
+</div>
+
+
+<br><br><br><br>
+
+<div class="row">
+   <div class="col-xs-12 col-sm-6">
+    <button type="button" class="btn btn-info btn-lg active pull-right">Request call back</button>
+</div>
+<div class="col-xs-12 col-sm-6">
+    <button type="button" class="btn btn-default btn-lg active pull-left">FAQ'S</button>
+  </div>
+</div>
+
+<br><br><br>
+    
+<div class="row ind7">
+<br>
+<center>
+<h3>Student Department Details</h3></center>
+<br><br><br>
+<div class="row">
+    <div class="col-xs-12 col-sm-3 form-group"><center>
+
+<span class=""><i class ="fa fa-hourglass-o" style="font-size:40px;"></i></span>
+<br><br>
+<h4>Average Salary Offered</h4>
+<h3>INR 7 L per annum</h3>
+<h4>per annum</h4>
+</center>
+</div>
+
+
+<div class="col-xs-12 col-sm-3 form-group"><center>
+
+<span class=""><i class ="fa fa-refresh" style="font-size:40px;"></i></span>
+<br><br>
+<h4>Duration</h4>
+<h3>2</h3>
+<h4>years</h4>
+</center>
+</div>
+
+
+
+<div class="col-xs-12 col-sm-3 form-group"><center>
+
+<span class=""><i class ="fa fa-thumbs-o-up" style="font-size:40px;"></i></span>
+<br><br>
+<h4>Average Fees Incurred</h4>
+<h3>INR 25,000 - 2 L </h3>
+<h4>per annum</h4>
+</center>
+</div>
+
+
+<div class="col-xs-12 col-sm-3 form-group"><center>
+
+<span class=""><i class ="fa fa-flag-o" style="font-size:40px;"></i></span>
+<br><br>
+<h4>Indian Institute of Technology, [IIT] Kanpur</h4>
+<h3>49,035</h3>
+<h4>Kanpur</h4>
+</center>
+</div>
+
+</div>
+<br><br>
+<div class="row">
+<div class="col-xs-12 col-sm-12 form-group"><center>
+
+<h6>* job: A group of homogeneous tasks related by similarity of functions.</h6></center>
+
+</div>
+</div>
+</div>
+
+<br><br>
+
+<div class="row">
+    <center><h3><strong>SERVICES</strong></h3></center>
+    <br>
+<div class="col-xs-12 col-sm-12 form-group">
+    <div class="col-xs-12 col-sm-1 form-group"></div>
+     
+<div class="col-xs-12 col-sm-3 ind8"> 
+
+<center><img src="Images/s1.jpg" width="280" height="90"/></center>
+
+<br><br>
+<h5 class="ind81"><strong>WEB DESIGN !!</strong></h5>
+<br>
+<h5 class="ind81">Online ordering system helps to maintain a Better Business Relationship with your customers, which is a key factor to run any successful business.</h5>    
+</div>
+
+<div class="col-xs-12 col-sm-1"></div>
+<div class="col-xs-12 col-sm-3 ind8"> 
+
+<center><img src="Images/s2.jpg" width="280" height="100"/></center>
+
+<br><br>
+<h5 class="ind81"><strong> IT SERVICES !!</strong></h5>
+<br>
+<h5 class="ind81">
+We are ideally located in Larbert meaning we can offer IT support to businesses throughout Scotland. We take the hassle and worry out of your IT system by providing preventative and proactive IT support.
+</h5>
+</div>
+
+<div class="col-xs-12 col-sm-1 form-group"></div>
+<div class="col-xs-12 col-sm-3 ind8"> 
+
+<center><img src="Images/s3.png" width="280" height="90"/></center>
+
+<br><br>
+<h5 class="ind81"><strong>WEB MARKETING !!</strong></h5>
+<br>
+<h5 class="ind81">
+We are passionate about digital content creation, strategy and delivery. We deliver results by designing marketing strategies which improve our clients brand visibility.
+</h5>    
+</div>
+
+</div>
+</div>
+
+
+
+
+<!-- Footer Start -->
+
+
+<br><br>
+<div class="row" id="footer">
+
+	<div class="col-xs-12 col-sm-12">
+
+<center><strong>Naresh Technologies</strong></center>
+<br>
+
+<div class="col-xs-12 col-sm-1"></div>
+<div class="col-xs-12 col-sm-3">
+
+<ul>
+ <li><a href="https://www.facebook.com/nareshit/" target="_blank"><i class ="fa fa-facebook"></i> Facebook</a></li>
+  <li><a href="https://nareshit.in/course-schedule/" target="_blank"><i class ="fa fa-envelope"></i> Google</a></li>
+ <li><a href="https://twitter.com/nareshitech?lang=en" target="_blank"><i class ="fa fa-twitter"></i> Twitter</a></li>
+  <li><a href="https://www.youtube.com/user/nareshtechnologies" target="_blank"><i class ="fa fa-youtube"></i> Youtube</a></li>
+</ul>
+
+</div>
+
+<div class="col-xs-12 col-sm-3">
+
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Service</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+</div>
+
+<div class="col-xs-12 col-sm-5">
+
+<ul>
+  <li>Name : Naresh Istitute</li>
+  <li>Email : info@nareshit.com</li>
+  <li>Contact : +91-xxxxxxxxxx</li>
+  <li>Address : Sr nagar, Hyderabad, Telangana, India </li>
+</ul>
+
+</div>
+
+</div>
+						
+</div>
+
+
+<!-- Footer End -->
+
+
+
+</div>
+</div> 
+</div>
+
+    
+</body>
+</html>
+    
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
