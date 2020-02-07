@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NareshIT</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <style>
+         .container-fluid {
+             box-shadow: 0px 10px 10px darkslategray;             
+             width: 95%;
+         }
+         .siteTitle {
+             font-family: Georgia;
+             font-size: 2em;
+             text-align: center;
+             letter-spacing: 5px;
+             font-weight: bold;
+         }
+         .btn-toolbar {
+             border-radius: 10px;
+             margin: 10px;
+         }
+         .serviceCard {
+             width: 200px;
+             box-shadow: 0px 10px 10px black;
+             padding: 10px;
+             float: left;
+             margin:40px;
+             text-align: center;
+         }
+        </style>
+    </head>
+    <body>
+      <div class="container-fluid">
+         <!--Site Title -->
+         <div class="siteTitle">
+             Naresh-i-Technolgoies
+         </div>
+         <!--Title End-->
+         <!--ToolBar-->
+            <div class="btn-toolbar justify-content-between bg-light">
+              <div class="btn-group">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a href="#" class="navbar-brand"></a>
+                    <button data-toggle="collapse" data-target="#menuDemo" type="button" class="navbar-toggler">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+              </div>
+              <div class="btn-group">
+                <a class="btn">Home</a>
+                <a class="btn">About</a>
+                <a class="btn">Contact</a>
+              </div>
+              <div class="btn-group">
+                <div class="dropdown" id="dropdownDemo">
+                    <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" data-target="#dropdownDemo">
+                       Manage Account
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item"><span class="dropdown-item-text">Signin</span></a>
+                        <a href="#" class="dropdown-item"><span class="dropdown-item-text">Register</span></a>
+                        <a href="#" class="dropdown-item"><span class="dropdown-item-text">Edit Account</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+         <!--Toobar End-->
+         <!--Carousel-->
+         <div id="carouselDemo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#carouselDemo" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselDemo" data-slide-to="1"></li>
+                <li data-target="#carouselDemo" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../Images/slide1.PNG" class="d-block w-100" data-interval="1000">
+                </div>
+                <div class="carousel-item">
+                    <img src="../Images/slide2.PNG" class="d-block w-100" data-interval="3000">
+                </div>
+                <div class="carousel-item">
+                    <img src="../Images/slide3.PNG" class="d-block w-100" data-interval="1000">
+                </div>
+            </div>
+            <a href="#carouselDemo" class="carousel-control-prev" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="#carouselDemo" class="carousel-control-next" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+           </div>
+         <!--Carousel End-->
+          <div class="text-center form-group">
+            <button class="btn btn-warning btn-lg">Depratment and Included</button>
+          </div>
+         <!--Department and Image-->
+           <div class="row form-group">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead class="bg-info">
+                        <th>Department</th>
+                        <th>Included</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>M.Tech</td>
+                            <td><input type="checkbox" checked></td>
+                        </tr>
+                        <tr>
+                            <td>B.Tech</td>
+                            <td><input type="checkbox" checked></td>
+                        </tr>
+                        <tr>
+                            <td>MCA</td>
+                            <td><input type="checkbox" checked></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <img src="../Images/group.jpg" class="img-fluid">
+            </div>
+           </div>
+         <!--Department End-->
+         <!--Courses Info-->
+          <div style="margin-top: 20px;" class="bg-info">
+            <h3 class="text-center text-white bg-info">Courses Offered</h3>
+            <div class="row ">
+                <div class="col">
+                    <h5>UI Technology</h5>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Python</h5>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Java</h5>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>.NET</h5>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>AWS</h5>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Full Stack</h5>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <!--End Courses-->
+          <!-- detail Courses-->
+          <div style="margin-top: 20px;">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2>Java</h2>
+                    The hiring manager wants to: Learn about your career goals and how this position fits into your plan. Make sure that you are sincerely interested in the job and will be motivated to perform if hired. Find out what you know about the company, industry, position (and if you took the time to research).
+                </div>
+                <div class="col-sm-3">
+                    <img src="../Images/group.jpg"  width="200" height="200" class="img-fluid">
+                </div>
+            </div>
+            <div class="row" style="margin-top:40px;">          
+                <div class="col-sm-3">
+                    <img src="../Images/group.jpg"  width="200" height="200" class="img-fluid">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="text-right">.NET</h2>
+                    The hiring manager wants to: Learn about your career goals and how this position fits into your plan. Make sure that you are sincerely interested in the job and will be motivated to perform if hired. Find out what you know about the company, industry, position (and if you took the time to research).
+                </div>
+            </div>
+          </div>
+          <!--Detail Courses-->
+          <!--Buttons-->
+            <div class="text-center" style="margin:40px">
+                <a class="btn btn-info text-white">Request Call Back</a>
+                <a class="btn btn-dark text-white">FAQ's</a>
+            </div>
+          <!--Buttons End-->
+          <!--Stats-->
+            <div class="bg-dark" style="margin-top:40px;">
+                <div class="text-center text-white font-weight-bold"> Our Stats & Achivements </div>
+                <div class="row text-white">
+                    <div class="col text-center">
+                        <img src="../Images/thumb.png" width="100" height="50">
+                        <p>Average Salary Offered
+                            INR 7 L per annum
+                            per annum</p>
+                    </div>
+                    <div class="col">
+                        <img src="../Images/thumb.png" width="100" height="50">
+                        <p>Average Salary Offered
+                            INR 7 L per annum
+                            per annum</p>
+                    </div>
+                    <div class="col">
+                        <img src="../Images/thumb.png" width="100" height="50">
+                        <p>Average Salary Offered
+                            INR 7 L per annum
+                            per annum</p>
+                    </div>
+                    <div class="col">
+                        <img src="../Images/thumb.png" width="100" height="50">
+                        <p>Average Salary Offered
+                            INR 7 L per annum
+                            per annum</p>
+                    </div> 
+                </div>
+                <div class="text-center text-white font-italic">
+                    * job: A group of homogeneous tasks related by similarity of functions.
+                </div>    
+                </div>                        
+              <!--End stats-->                 
+            <!--services-->
+            <div class="serviceCard">
+                <img src="../Images/s1.jpg" width="150" height="150">
+                <h3> WEB DESIGN !! </h3>
+
+Online ordering system helps to maintain a Better Business Relationship with your customers, which is a key factor to run any successful business.
+            </div>
+            <div class="serviceCard">
+                <img src="../Images/s2.jpg"  width="150" height="150">
+                <h3> WEB DESIGN !! </h3>
+
+                Online ordering system helps to maintain a Better Business Relationship with your customers, which is a key factor to run any successful business.
+            </div>
+            <div class="serviceCard">
+                <img src="../Images/s3.png"  width="150" height="150">
+                <h3> WEB DESIGN !! </h3>
+
+                Online ordering system helps to maintain a Better Business Relationship with your customers, which is a key factor to run any successful business.
+            </div>            
+          <!--End Service-->
+      </div>
+    </body>
+</html>
