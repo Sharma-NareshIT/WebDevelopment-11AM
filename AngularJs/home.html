@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  ng-app>
+    <head>
+        <title>Demo</title>
+        <style>
+            .box{
+                border:2px solid darkcyan;
+                box-shadow: 0px 5px 10px;
+                margin: 20px;
+                padding: 20px;
+                float: left;
+            }
+        </style>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+    </head>
+    <body>
+       <div class="container-fluid">
+        <div class="box">
+            <h2>Register Product</h2>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" class="form-control" ng-model="product.Name"></dd>
+                <dt>Manufactured</dt>
+                <dd><input type="date" class="form-control" ng-model="product.Mfd"></dd>
+                <dt>Is In Stock</dt>
+                <dd>
+                    <input type="radio" name="stock" value="Available" ng-model="product.Stock"> Yes
+                    <input type="radio" name="stock" value="Out Of Stock" ng-model="product.Stock"> No
+                </dd>
+                <dt>Shipped To</dt>
+                <dd>
+                    <select class="form-control" ng-model="product.City">
+                        <option>Delhi</option>
+                        <option>Hyd</option>
+                    </select>
+                </dd>
+            </dl>
+        </div>
+        <div class="box">
+            <h2>Product Details</h2>
+            <table class="table table-hover">
+                <colgroup span="1" class="bg-warning"></colgroup>
+                <tr>
+                    <td>Name</td>
+                    <td ng-bind="product.Name"></td>
+                </tr>
+                <tr>
+                    <td>Manufactured</td>
+                    <td>{{product.Mfd.toLocaleDateString()}}</td>
+                </tr>
+                <tr>
+                    <td>Stock Status</td>
+                    <td>{{product.Stock}}</td>
+                </tr>
+                <tr>
+                    <td>Shipped To</td>
+                    <td>{{product.City}}</td>
+                </tr>
+            </table>
+           
+        </div>
+       </div>
+    </body>
+</html>
