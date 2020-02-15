@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box{
+                width: 300px;
+                margin: 20px;
+                padding:20px;
+                box-shadow: 0px 5px 10px darkcyan;
+                border:2px solid darkcyan;
+            }
+            .cartTable {
+                width: 300px;
+                margin: auto;
+                position: fixed;
+                left: 400px;                
+            }
+        </style>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script>
+            var app=angular.module("ShoppingApp",[]);
+            app.controller("HomeController", function($scope){
+                 $scope.selectedCategory="";
+                 $scope.selectedProduct="";
+
+                 $scope.categories = ["Electronics","Shoes"];
+                 $scope.electronics = ["Samsung TV","LG Mobile"];
+                 $scope.shoes = ["Nike Casuals","Lee Cooper Boot"];
+                 $scope.products;
+                 
+                 $scope.productsData=[
+                     {Name:"Samsung TV", Price:45000.55, Photo:"../Images/tv.jpg"},
+                     {Name:"LG Mobile", Price:13000.55, Photo:"../Images/mobile.jpg"},
+                     {Name:"Nike Casuals", Price:6000.55, Photo:"../Images/shoe.jpg"},
+                     {Name:"Lee Cooper Boot", Price:3000.55, Photo:"../Images/shoe1.jpg"},
+                     
+                 ];
+                
+                 $scope.CategoryChanged =function(){
+                      switch($scope.selectedCategory){
+                          case "Electronics":
+                          $scope.products = $scope.electronics;
+                          break;
+                          case "Shoes":
+                          $scope.products = $scope.shoes;
+                          break;
+                      }
+                 }
+                 $scope.result;
+                 $scope.ProductChanged = function(){
+                     $scope.result = $scope.productsData.filter(x=>x.Name==$scope.selectedProduct.trim());
+                 }
+                 $scope.cartItems=[];
+                 $scope.cartItemsCount;
+                 $scope.isCartVisible=false;
+                 $scope.AddToCartClick = function(){
+                      $scope.cartItems.push($scope.result[0]);
+                      $scope.cartItemsCount=$scope.cartItems.length;
+                 }
+                 $scope.ShowCart=function(){
+                     $scope.isCartVisible=true;
+                 }
+                 $scope.CloseClick=function(){
+                     $scope.isCartVisible=false;
+                 }
+                 $scope.RemoveClick =function(index){
+                      var c  = confirm("Are you Sure? Want to Delete?");
+                      if(c==true) {
+                        $scope.cartItems.splice(index,1);
+                        alert("Item Removed");
+                        $scope.cartItemsCount=$scope.cartItems.length;
+                      }
+                 }
+            })
+        </script>
+    </head>
+    <body ng-app="ShoppingApp" ng-controller="HomeController">
+        <div ng-click="ShowCart()" style="width:50px; height:70px; margin:20px; right:0px; top:0px; position:fixed; border:2px solid darkcyan; text-align: center; cursor:grab">
+            <img src="../Images/cart.jpg" width="40" height="40">
+            <div style="font-weight: bold;">
+                ({{cartItemsCount}})
+            </div>
+        </div>
+        <div class="cartTable" ng-show="isCartVisible">
+            <h3>Your Cart Items</h3>
+            <table class=" table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Preview</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in cartItems">
+                        <td>{{item.Name}}</td>
+                        <td>{{item.Price|currency:'&#8377;'}}</td>
+                        <td><img src="{{item.Photo}}" width="50" height="50"></td>
+                        <td><button ng-click="RemoveClick($index)" class="btn btn-danger">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-danger" ng-click="CloseClick()">Close</button>
+        </div>
+        <div class="box">
+            <div class="text-center text-primary">
+                <h2>Amazon Shopping</h2>
+            </div>
+            <div class="form-group">
+                <label>Select a Category</label>
+                <div>
+                    <select class="form-control" ng-model="selectedCategory" ng-change="CategoryChanged()">
+                        <option ng-repeat="item in categories">{{item}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Select a Product</label>
+                <div>
+                    <select class="form-control" ng-model="selectedProduct" ng-change="ProductChanged()">
+                        <option ng-repeat="product in products">
+                            {{product}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            {{result[0].Name}}
+                        </h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="{{result[0].Photo}}" width="300" height="200" class="img-fluid">
+                    </div>
+                    <div class="card-footer text-center">
+                        <h3>{{result[0].Price|currency:'&#8377;'}}</h3>
+                        <button class="btn btn-outline-primary" ng-click="AddToCartClick()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
