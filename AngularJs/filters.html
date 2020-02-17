@@ -1,0 +1,81 @@
+<head>
+    <style>
+        .boxLeft {
+            border:2px solid darkcyan;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px darkcyan ;
+            float: left;
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+        }
+        .boxRight {
+            border:2px solid darkcyan;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px darkcyan ;
+            float: left;
+            width: 800px;
+            height: 400px;
+          
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app= angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.products=[
+                {Name:"Samsung TV", Price:45000.55, Mfd:new Date("2019/02/10"), Photo:"../Images/tv.jpg"},
+                {Name:"Nike Shoe", Price:3000.55, Mfd:new Date("2019/10/02"), Photo:"../Images/shoe.jpg"},
+                {Name:"Lee Cooper Shoe", Price:5000.55, Mfd:new Date("2019/03/18"), Photo:"../Images/shoe1.jpg"},
+                {Name:"Mobile", Price:15000.55, Mfd:new Date("2019/07/12"), Photo:"../Images/mobile.jpg"},                
+            ]
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <div class="container-fluid">
+        <div class="boxLeft">
+          <div class="form-group">
+            <label>Search</label>
+            <div>
+                <input type="text" class="form-control" ng-model="searchString">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Sort</label>
+            <div>
+                <select class="form-control" ng-model="sortString">
+                    <option value="Name">Name</option>
+                    <option value="Price">Price</option>
+                    <option value="Mfd">Manufactured</option>
+                </select>
+                <div>
+                    <input type="checkbox" ng-model="isReverse"> Reverse
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="boxRight">
+            <div class="card-deck">
+                <div class="card" ng-repeat="item in products|filter:searchString|orderBy:sortString:isReverse|limitTo:totalRecords">
+                     <div class="card-header">
+                        {{item.Name|uppercase}}
+                     </div>
+                     <div class="card-body">
+                        <img src="{{item.Photo}}" width="100" height="100">
+                     </div>
+                     <div class="card-footer">
+                        <h3>{{item.Price|currency:'&#8377;'}}</h3>
+                        <p>{{item.Mfd|date:'dd/MM/yyyy'}}</p>
+                     </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 20px;">
+                <input type="number" ng-model="totalRecords" min="1" max="products.length"> How Many?
+            </div>
+        </div>    
+    </div>
+</body>
