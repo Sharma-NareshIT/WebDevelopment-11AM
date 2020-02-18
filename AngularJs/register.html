@@ -1,0 +1,85 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        form {
+            border: 2px solid darkcyan;
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+        }
+        .ng-invalid {
+            box-shadow: 0px 2px 5px red;
+        }
+        .ng-valid {
+            box-shadow: 0px 2px 5px green;
+        }
+    </style>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+      var app=angular.module("DemoApp",[]);
+      app.controller("HomeController", function($scope){
+          $scope.lstCity = '';
+          $scope.isCityinValid=false;
+          $scope.VerifyCity =function(){
+             if($scope.lstCity=="nocity") {
+                 $scope.isCityinValid=true;
+             } else {
+                 $scope.isCityinValid=false;
+             }
+          }
+
+      })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <div class="container">
+        <form novalidate name="frmRegister">
+            <h2>Register User</h2>
+            <div class="form-group">
+                <label>User Name</label>
+                <div>
+                    <input type="text" name="txtName" ng-model="txtName" class="form-control" required minlength="4" ng-maxlength="10">
+                    <div class="text-danger" ng-if="frmRegister.txtName.$touched">
+                        <span ng-if="frmRegister.txtName.$error.required">Name Required</span>
+                        <span ng-if="frmRegister.txtName.$error.minlength">Name too short..</span>
+                        <span ng-if="frmRegister.txtName.$error.maxlength">Name too long..</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <div>
+                    <input type="email" name="txtEmail" ng-model="txtEmail" required class="form-control">
+                    <div class="text-danger" ng-if="frmRegister.txtEmail.$touched">
+                        <span ng-if="frmRegister.txtEmail.$error.required">Email Required</span>
+                        <span ng-if="frmRegister.txtEmail.$error.email">Invalid Email</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mobile</label>
+                <div>
+                    <input type="text" name="txtMobile" ng-model="txtMobile" required pattern="\+91[0-9]{10}" class="form-control">
+                    <div class="text-danger" ng-if="frmRegister.txtMobile.$touched">
+                        <span ng-if="frmRegister.txtMobile.$error.required">Mobile Required</span>
+                        <span ng-if="frmRegister.txtMobile.$error.pattern">Invalid Mobile</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Choose City</label>
+                <div>
+                    <select ng-change="VerifyCity()" class="form-control" ng-model="lstCity" name="lstCity">
+                        <option value="nocity">Select City</option>
+                        <option value="Hyd">Hyd</option>
+                        <option value="Delhi">Delhi</option>
+                    </select>
+                    <span ng-if="isCityinValid" class="text-danger">Please Select a City</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-block btn-primary" ng-disabled="frmRegister.$invalid || isCityinValid">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
