@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular/angular-route.js"></script>
+        <script>
+            var app=angular.module("DemoApp",['ngRoute']);
+            app.config(function($routeProvider){
+                $routeProvider
+                .when("/",{
+                    templateUrl:"tutorialhome.html"
+                })
+                .when("/home",{
+                    templateUrl:"tutorialhome.html"
+                })
+                .when("/html",{
+                    templateUrl:"htmltutorial.html"
+                })
+                .when("/js",{
+                    templateUrl:"jstutorial.html"
+                })
+                .when("/css",{
+                    templateUrl:"csstutorial.html"
+                })
+                .when("/register",{
+                    templateUrl:"register.html"
+                })
+            })
+            app.controller("IndexController", function($scope){
+
+            })
+        </script>
+    </head>
+    <body ng-app="DemoApp" ng-controller="IndexController">
+        <div class="container-fluid">
+            <h2>NareshIT | Online Tutorial</h2>
+            <div class="btn-toolbar bg-primary text-white">
+                <div class="btn-group">
+                    <a href="#!home" class="btn btn-primary">Home</a>
+                    <a href="#!html" class="btn btn-primary">HTML Tutorial</a>
+                    <a href="#!js" class="btn btn-primary">JavaScript</a>
+                    <a href="#!css" class="btn btn-primary">CSS Basics</a>
+                    <a href="#!register" class="btn btn-primary">Register</a>
+                </div>
+            </div>
+            <div style="height: 400px;">
+                <ng-view></ng-view>
+            </div>
+            <div class="bg-secondary text-white text-center">
+                <div>JavaScript | CSS | HTML </div>
+            </div>
+        </div>
+    </body>
+</html>
