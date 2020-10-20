@@ -32,7 +32,9 @@ a:link {
     margin-left: 40px;
 }
 .hspace :hover {
-    background-color: white;
+    transition-delay: 120;
+    zoom: 105%;
+    background-color: black;
     color:black;
 }
 marquee {
@@ -56,4 +58,11 @@ footer {
     margin: 5px;
     height: 200px;
     color:white
+}
+
+#menubutton
+{
+    text-decoration: none;
+    border-radius:10%
+    color: white;
 }
